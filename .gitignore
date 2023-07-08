@@ -1,0 +1,25 @@
+frontend/fs-task-frontend/node_modules
+backend/node_modules
+backend/.env
+
+frontend/fs-task-frontend/.DS_Store
+frontend/fs-task-frontend/.env.local
+frontend/fs-task-frontend/.env.development.local
+frontend/fs-task-frontend/.env.test.local
+frontend/fs-task-frontend/.env.production.local
+
+frontend/fs-task-frontend/npm-debug.log*
+frontend/fs-task-frontend/yarn-debug.log*
+frontend/fs-task-frontend/yarn-error.log*
+
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+
+frontend/fs-task-frontend/.pnp
+frontend/fs-task-frontend/.pnp.js
+
+frontend/fs-task-frontend/coverage
+
+# production
+frontend/fs-task-frontend/build
