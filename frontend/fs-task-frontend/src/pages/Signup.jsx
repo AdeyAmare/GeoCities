@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 
+import { useDispatch } from 'react-redux'
+import { signupUser } from '../redux/authSlice';
+import { store } from '../redux/store';
+
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
+
+    const dispatch = useDispatch();
 
     const handleSubmit = async (event) => {
 
@@ -28,7 +34,10 @@ const Signup = () => {
 
         if (response.ok) {
             localStorage.setItem('user', JSON.stringify(json))
+            dispatch(signupUser(json));
             setIsLoading(false);
+            console.log(store.getState())
+
         }
 
 

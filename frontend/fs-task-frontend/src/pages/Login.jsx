@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../redux/authSlice';
+import { store } from '../redux/store';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -6,6 +9,8 @@ const Login = () => {
 
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
+
+    const dispatch = useDispatch();
 
     const handleSubmit = async (event) => {
 
@@ -28,7 +33,9 @@ const Login = () => {
 
         if (response.ok) {
             localStorage.setItem('user', JSON.stringify(json))
+            dispatch(loginUser(json))
             setIsLoading(false);
+            console.log(store.getState())
         }
 
 
