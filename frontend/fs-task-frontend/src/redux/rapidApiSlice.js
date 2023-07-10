@@ -12,12 +12,10 @@ export const rapidApiSlice = createSlice({
             state.countryDetail = action.payload;
 
         },
-        createCountryDetail: (state, action) => {
-            state.countryDetail = [action.payload, ...state.countryDetail]
-        }
+
 
     }
 });
 
-export const { setCountryDetail, createCountryDetail } = rapidApiSlice.actions;
+export const { setCountryDetail } = rapidApiSlice.actions;
 export default rapidApiSlice.reducer;

@@ -1,15 +1,15 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { setCountryDetail } from '../redux/rapidApiSlice';
 import CountryDetails from '../components/CountryDetails';
 import Form from '../components/Form'
 import { logoutUser } from '../redux/authSlice';
+import { setHistory } from '../redux/historySlice';
 
 const Search = () => {
     const dispatch = useDispatch()
 
-    const countries = useSelector(state => state.apiReducer)
+    const historyState = useSelector(state => state.historyReducer)
     const authState = useSelector(state => state.authReducer)
     const user = authState.user
 
@@ -19,18 +19,11 @@ const Search = () => {
         })
         const json = await response.json();
         if (response.ok) {
-            dispatch(setCountryDetail(json))
+            dispatch(setHistory(json))
         }
     }
 
-    const handleLogout = () => {
-        localStorage.removeItem('user')
-        dispatch(logoutUser)
-        dispatch(setCountryDetail(null))
-        //console.log(store.getState())
 
-
-    }
 
     return (
         <div>
@@ -38,10 +31,9 @@ const Search = () => {
                 {user && <button onClick={fetchCountries}>Fetch History</button>}
                 <div className='flex flex-row h-screen'>
 
-                    {countries.countryDetail && countries.countryDetail.map((country) => (
-                        <CountryDetails key={countries.countryDetail._id} country={country} />
+                    {historyState.history && historyState.history.map((country) => (
+                        <CountryDetails key={historyState.history._id} country={country} />
                     ))}
-                    <button onClick={handleLogout}>Logout</button>
                 </div>
                 <Form />
             </div>
