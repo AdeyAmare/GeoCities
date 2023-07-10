@@ -1,24 +1,52 @@
-const Country = require("../models/countryDetailsModel")
+const Country = require('../models/countryModel')
 const express = require("express");
 const axios = require('axios');
 const router = express.Router()
 
-const options = {
-    method: 'GET',
-    url: 'https://wft-geo-db.p.rapidapi.com/v1/geo/countries/US',
-    headers: {
-        'X-RapidAPI-Key': `${process.env.API_KEY}`,
-        'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
-    }
-};
+
+
 
 const getCountryDetails = router.get('/getCountryDetails', async (req, res) => {
 
+    const { param } = req.query
+    console.log(param)
+    const options = {
+        method: 'GET',
+        url: `https://wft-geo-db.p.rapidapi.com/v1/geo/countries/${param}`,
+
+        headers: {
+            'X-RapidAPI-Key': `${process.env.API_KEY}`,
+            'X-RapidAPI-Host': 'wft-geo-db.p.rapidapi.com'
+        }
+    };
     try {
+
         const response = await axios.request(options);
-        Country.insertMany(response.data);
-        res.send(response.data);
-        //console.log(response.data);
+        const resData = response.data;
+        console.log(resData.data.capital);
+
+        const user_id = req.user._id
+        //console.log(user_id)
+        const exists = await Country.findOne({ code: resData.data.code, user_id: user_id })
+
+
+        if (exists) {
+            res.status(400).json({ message: 'Country already exists' })
+        } else {
+            const country = Country.create({
+                user_id: user_id,
+                capital: resData.data.capital,
+                code: resData.data.code,
+                callingCode: resData.data.callingCode,
+                flagImageUri: resData.data.flagImageUri,
+                name: resData.data.name,
+                numRegions: resData.data.numRegions,
+
+            });
+            res.status(200).json(country);
+
+        }
+
     } catch (error) {
         console.error(error);
     }

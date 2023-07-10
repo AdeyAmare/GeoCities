@@ -3,23 +3,29 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const countrySchema = new Schema({
-    code: {
+    user_id: {
         type: String,
         required: true,
-        unique: true
+    },
+
+    capital: {
+        type: String
+    },
+    code: {
+        type: String,
     },
     callingCode: {
         type: String,
-        required: true,
-        unique: true
+
+    },
+    flagImageUri: {
+        type: String
     },
     name: {
         type: String,
-        required: true,
     },
     numRegions: {
         type: Number,
-        required: false
     }
 })
 
