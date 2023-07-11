@@ -107,7 +107,7 @@ To run the application on your machine, you need to have Node.js, npm and Git in
 - ```POST /api/user/register```: Registers a new user. This is not a protected route and can be accessed by anyone.
 - ```POST /api/user/login```: Logs in a user. This is not a protected route and can be accessed by anyone.
 ## Search and Search History Endpoints
-- ```GET api/country/getCountryDetails```: Gets the country details for a specific country code. This is a protected route and requires authorization.
+- ```GET api/country/getCountryDetails```: Gets the country details for a specific country code. This is a protected route and requires authorization. It also needs a parameter from the user
 - ```GET api/country/getSearchHistory```: Gets the search history for a specific user. This is a protected route and requires authorization.
 
 ## Folder Structures
