@@ -49,7 +49,7 @@ To run the application on your machine, you need to have Node.js, npm and Git in
 3. Install any dependencies using the command :
   - ```npm install```
 4. Create a .env file and add the following environment variables: 
-    - ```PORT=4000```
+    - ```PORT=4000``` - necessary because it's been set as proxy on the frontend
     - ```MONGO_URI=<mongo_uri>```
     - ```SECRET=<jwt_secret>```
     - ```API_KEY=<rapid_api_key>```
