@@ -8,6 +8,7 @@ import CountryDetails from '../components/CountryDetails';
 const Form = () => {
 
     const [countryCode, setCountryCode] = useState('')
+    const [error, setError] = useState('');
 
     const authState = useSelector(state => state.authReducer)
     const user = authState.user;
@@ -22,7 +23,7 @@ const Form = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        if (user) {
+        if (user && countryCode) {
             const response = await fetch(`/api/country/getCountryDetails?param=${countryCode}`, {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
@@ -40,51 +41,34 @@ const Form = () => {
                 dispatch(setCountryDetail(arr))
                 console.log(store.getState())
             }
+        } else {
+            setError('Please select a country first. ')
         }
 
 
     }
 
     return (
-        <div className=" h-screen w-1/4 flex flex-col justify-between shadow-lg">
-            <div className="p-4">
-                <h2 className="text-lg font-semibold mb-4">Search a country code </h2>
-                <select onChange={handleSelectChange}>
-                    {
-                        countryCodes.map(code => (
-                            <option key={code.isoCode} value={code.isoCode}>{code.isoCode}-{code.country}</option>
-                        ))
-                    }
-                </select>
-                <button onClick={handleSubmit}>Search</button>
-                {/* <form onSubmit={handleSubmit}>
-                    <div className="mb-4" >
-                        <label className="block text-gray-400 font-semibold mb-2" for="name">
-                            Country Code
-                        </label>
-                        <input className="w-full  text-gray-200 rounded py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
-                            id="name" name="name" placeholder="Country Code" type="text" onChange={(event) => setCountryCode(event.target.value)} value={countryCode} />
-                    </div>
+        <div className=" relative">
+            <select className='block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500' onChange={handleSelectChange}>
+                <option value="">Select a country</option>
+                {
+                    countryCodes.map(code => (
+                        <option key={code.isoCode} value={code.isoCode}>{code.isoCode}-{code.country}</option>
+                    ))
+                }
+            </select>
+            <button className='mt-4 py-2 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700' onClick={handleSubmit}>Search</button>
+            {error && (
+                <p className='text-red-400 mt-2'>{error}</p>
+            )}
+            <div className="mt-4">
+                {countries.countryDetail && countries.countryDetail.map((country) => (
+                    <CountryDetails key={countries.countryDetail._id} country={country} />
+                ))}
 
-
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg" type="submit">
-                        Search
-                    </button>
-                </form> */}
             </div>
 
-
-
-            {countries.countryDetail && countries.countryDetail.map((country) => (
-                <CountryDetails key={countries.countryDetail._id} country={country} />
-            ))}
-
-
-            <div className="p-4">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg w-full" type="button">
-                    Login
-                </button>
-            </div>
         </div>
     )
 }

@@ -14,17 +14,19 @@ function App() {
 
 
   return (
-    <div className="App">
-      {user && <Navbar />}
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+        {user && <Navbar />}
+
         <Routes>
           <Route path='/login' element={!user ? <Login /> : <Navigate to="/" />} />
           <Route path='/signup' element={!user ? <Signup /> : <Navigate to="/" />} />
           <Route path='/' element={user ? <Search /> : <Navigate to="/login" />} />
         </Routes>
-      </BrowserRouter>
 
-    </div>
+
+      </div >
+    </BrowserRouter>
   );
 }
 

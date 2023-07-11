@@ -4,6 +4,7 @@ import { loginUser } from '../redux/authSlice';
 import { store } from '../redux/store';
 import { FaRegEnvelope, FaEye, FaEyeSlash } from 'react-icons/fa'
 import { MdLockOutline } from 'react-icons/md'
+import { Link } from 'react-router-dom';
 
 
 const Login = () => {
@@ -78,7 +79,7 @@ const Login = () => {
                         <h2 className='text-3xl font-bold mb-2'>Hello!</h2>
                         <div className="border-2 w-10 border-white inline-block mb-2"></div>
                         <p className="mb-10">Fill up your information and start your journey here. </p>
-                        <a href="#" className='border-2 border-white rounded-full px-6 md:px-12 py-2 inline-block font-semibold hover:bg-white hover:text-green-400 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110'>Sign Up</a>
+                        <Link to="/signup" className='border-2 border-white rounded-full px-6 md:px-12 py-2 inline-block font-semibold hover:bg-white hover:text-green-400 transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110'>Sign Up</Link>
                     </div>
                 </div>
             </main>
