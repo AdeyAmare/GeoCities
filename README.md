@@ -26,7 +26,7 @@ The backend of the application was built using NodeJS and ExpressJS. The data is
 
 6. The next step was to implement the search history functionality. To do this, I set up an endpoint to check whether an entry for a specific user ID existed in the database. I then implemented the search history functionality to make a call to this endpoint and store the data in the Redux slice. This allowed users to view their search history within the application.
 
-7. To ensure that the application was secure, I implemented protected routes both for the frontend and the backend. This only allowed authorized users to access the search and search history functionalities. This ensured that user data was protected and that only authorized users could access sensitive information.
+7. To ensure that the application was secure, I implemented protected routes both for the frontend and the backend. This only allowed authorized users to access the search and search history functionalities. For the frontend, if the user tries to access the search functionality without being logged in, it redirects to the login page. This ensured that user data was protected and that only authorized users could access sensitive information.
    
 8. I did input validation on the server side for the sign up and login functionalities. I also displayed the errors on the frontend. For the search and search history functionalities I did validation on the frontend to verify whether the user has selected a value before searching and displaying search history only when the user has one.  
 
