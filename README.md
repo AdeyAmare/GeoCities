@@ -43,7 +43,7 @@ The server needs to be running first in order to access the api endpoints proper
 To run the application on your machine, you need to have Node.js, npm and Git installed. Then, follow these steps:
 
 1. Clone this repository onto your local environment using the command :
-  - ```git clone https://github.com/AdeyAmare/MM-FS-Test-Task```
+  - ```https://github.com/AdeyAmare/MM-FS-Test-Task.git```
 2. Navigate to the project directory using the command :
  -  ```cd backend```
 3. Install any dependencies using the command :
