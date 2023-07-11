@@ -37,6 +37,7 @@ Overall, these steps allowed me to build a full-stack application that was both 
 ## Running the App
 
 ## Backend
+
 The server needs to be running first in order to access the api endpoints properly to have a fully operating app on the frontend. 
 
 To run the application on your machine, you need to have Node.js, npm and Git installed. Then, follow these steps:
@@ -56,6 +57,7 @@ To run the application on your machine, you need to have Node.js, npm and Git in
   - ```npm run dev```
 
 ## Frontend 
+
 1. Clone this repository onto your local environment using the command :
  -  ```git clone https://github.com/AdeyAmare/MM-FS-Test-Task```
 2. Navigate to the project directory using the command :
@@ -68,13 +70,18 @@ To run the application on your machine, you need to have Node.js, npm and Git in
 
 ## Demo
 ## Frontend
+
 1. Signup
+
 ![Screenshot (180)](https://github.com/AdeyAmare/MM-FS-Test-Task/assets/56384397/311d6623-29ae-4a88-94ac-ea123874d904)
 2. Login
+
 ![Screenshot (178)](https://github.com/AdeyAmare/MM-FS-Test-Task/assets/56384397/52db8502-c73c-4b6e-953d-a151e9a6b039)
 3. Search
+
 ![Screenshot (181)](https://github.com/AdeyAmare/MM-FS-Test-Task/assets/56384397/e853e7e5-56ac-4968-87ae-79c21c41fefd)
 4. Search History
+
 ![Screenshot (177)](https://github.com/AdeyAmare/MM-FS-Test-Task/assets/56384397/8ad950f7-d634-42e3-b44e-d27e60db737c)
 
 ## Libraries Used
