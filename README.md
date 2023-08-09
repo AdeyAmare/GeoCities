@@ -1,8 +1,6 @@
 # MM-FS-Test-Task
 
-## Mine Marketing Full Stack Development Test Task
-
-This repository contains the code for a full stack web application built as part of the Mine Marketing Full Stack Development Test Task. The application allows users to login, register, search for countries, and view their search history.
+This repository contains the code for a full stack web application that allows users to login, register, search for countries, and view their search history.
 
 ## Frontend
 
