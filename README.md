@@ -1,4 +1,4 @@
-# MM-FS-Test-Task
+# GeoCities
 
 This repository contains the code for a full stack web application that allows users to login, register, search for countries, and view their search history.
 
